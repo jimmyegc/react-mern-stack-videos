@@ -1,0 +1,30 @@
+@api = http://localhost:3000
+
+###
+GET {{api}}/videos
+
+###
+GET {{api}}/videos/123
+
+###
+DELETE {{api}}/videos/65b1574c792d2ed08f640fd3
+
+### 
+POST {{api}}/videos
+Content-Type: application/json
+
+{
+  "title": "The Net Ninja React",
+  "description": "Full React Tutorial",
+  "url": "https://www.youtube.com/watch?v=j942wKiXFu8&list=PL4cUxeGkcC9gZD-Tvwfod2gaISzfRiP9d"
+}
+
+###
+PUT {{api}}/videos/65b15b8e388a2dfe7150529b
+Content-Type: application/json
+
+{
+  "title": "The Net Ninja Reactxx",
+  "description": "Full React Tutorial",
+  "url": "https://www.youtube.com/watch?v=j942wKiXFu8&list=PL4cUxeGkcC9gZD-Tvwfod2gaISzfRiP9d"
+}

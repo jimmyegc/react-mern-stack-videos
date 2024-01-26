@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import VideoList from './components/Videos/VideoList.tsx'
 import VideoForm from './components/Videos/VideoForm.tsx'
 import Navbar from './components/Navbar/Navbar.tsx'
+import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
@@ -14,7 +15,6 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         <Route path="/" element={ <VideoList/> }/>
         <Route path="/new-video" element={ <VideoForm/> }/>
         <Route path="/update/:id" element={ <VideoForm/> }/>
-
       </Routes>
     </BrowserRouter>    
     <App />

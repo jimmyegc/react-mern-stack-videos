@@ -49,32 +49,35 @@ const VideoForm = () => {
 
   return (
   <>
-    <form onSubmit={handleSubmit}>
-      <div>        
+    <form onSubmit={handleSubmit} className="container mx-auto flex flex-col">
+      <div className="m-4">        
         <input type="text" name="title" 
           placeholder="Write a title for this video." autoFocus 
           onChange={handleInputChange}
           value={video.title}
+          className="border-2 border-slate-50 p-3 w-full"
         />        
       </div>
-      <div>
+      <div className="m-4">
         <input type="url" name="url"
           placeholder="https://somesite.com" 
           onChange={handleInputChange}
           value={video.url}
+          className="border-2 border-slate-50 p-3 w-full"
       />
       </div>
-      <div>
+      <div className="m-4">
         <textarea name="description" rows={3}
           placeholder="Write a description"
           onChange={handleInputChange}
           value={video.description}
+          className="border-2 border-slate-50 p-3 w-full"
         ></textarea>
       </div>
       { params.id ? (
         <button type="submit">Update Video</button> 
       ) : (
-        <button type="submit">Create</button>
+        <button type="submit" className="inline-block px-5 py-2 mx-auto text-white bg-blue-600 rounded-full hover:bg-blue-700 md:mx-0">Create</button>
       )}      
     </form>
   </>

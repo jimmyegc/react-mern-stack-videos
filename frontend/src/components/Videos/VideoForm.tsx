@@ -48,7 +48,7 @@ const VideoForm = () => {
   }, [])
 
   return (
-  <>
+  <div className="bg-slate-100 h-screen">
     <form onSubmit={handleSubmit} className="container mx-auto flex flex-col">
       <div className="m-4">        
         <input type="text" name="title" 
@@ -80,7 +80,7 @@ const VideoForm = () => {
         <button type="submit" className="inline-block px-5 py-2 mx-auto text-white bg-blue-600 rounded-full hover:bg-blue-700 md:mx-0">Create</button>
       )}      
     </form>
-  </>
+  </div>
   )
 }
 

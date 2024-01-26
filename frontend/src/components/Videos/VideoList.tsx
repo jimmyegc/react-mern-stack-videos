@@ -25,7 +25,7 @@ const VideoList = () => {
   }, [])
 
   return(
-    <div>
+    <div className="bg-slate-100 h-screen mx-auto container">
       {videos.map((video) => { 
         return <VideoItem video={video} key={video._id} getVideos={getVideos} />
       })}

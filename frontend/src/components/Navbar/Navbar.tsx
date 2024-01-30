@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <header className="bg-white shadow px-6">
+    <header className="bg-white shadow">
       <div className="flex justify-between h-16 items-center max-w-6xl mx-auto">
         <button className="text-slate-500 hover:bg-sky-500 hover:text-slate-100 rounded p-1 -m-1 transition-color focus:ring-2 focus:ring-slate-200">
           <svg
@@ -46,9 +46,9 @@ const Navbar = () => {
             My Videos
           </a>
           <div className="space-x-8 ml-8 hidden md:flex">
-            <a href="#" className="px-3 py-2 text-sky-500">
+            <Link to="/" className="px-3 py-2 text-sky-500">
               Home
-            </a>
+            </Link>
             <a
               href="#"
               className="text-slate-600 px-3 py-2 hover:text-sky-500 transition-colors"
@@ -127,9 +127,9 @@ const Navbar = () => {
 
       <div className="bg-slate-900 p-4 text-white mt-0">
         <ul className="flex h-10 items-center">
-          <li className="">
+          {/*  <li className="">
             <Link to="/">Home</Link>
-          </li>
+          </li> */}
           <li className="">
             <Link to="/new-video">Create new video</Link>
           </li>

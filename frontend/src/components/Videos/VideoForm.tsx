@@ -12,10 +12,10 @@ type IParams = {
 const VideoForm = () => {
   let navigate = useNavigate()
   let params = useParams<IParams>()
-   
+
   const initialState = {
-    title: '', 
-    description: '', 
+    title: '',
+    description: '',
     url: ''
   }
 
@@ -27,60 +27,67 @@ const VideoForm = () => {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if(!params.id) { 
-      await videoService.createVideo(video)    
-      alert('Nuevo video agregado')    
+    if (!params.id) {
+      await videoService.createVideo(video)
+      alert('Nuevo video agregado')
       setVideo(initialState)
     } else {
       await videoService.updateVideo(params.id, video)
     }
-    navigate('/')    
+    navigate('/')
   }
 
   const getVideo = async (id: string) => {
-    const res = await videoService.getVideo(id)        
-    const { title, description, url } = res.data       
+    const res = await videoService.getVideo(id)
+    const { title, description, url } = res.data
     setVideo({ title, description, url })
   }
 
   useEffect(() => {
-    if(params.id) getVideo(params.id)
+    if (params.id) getVideo(params.id)
   }, [])
 
   return (
-  <div className="bg-slate-100 h-screen">
-    <form onSubmit={handleSubmit} className="container mx-auto flex flex-col">
-      <div className="m-4">        
-        <input type="text" name="title" 
-          placeholder="Write a title for this video." autoFocus 
-          onChange={handleInputChange}
-          value={video.title}
-          className="border-2 border-slate-50 p-3 w-full"
-        />        
-      </div>
-      <div className="m-4">
-        <input type="url" name="url"
-          placeholder="https://somesite.com" 
-          onChange={handleInputChange}
-          value={video.url}
-          className="border-2 border-slate-50 p-3 w-full"
-      />
-      </div>
-      <div className="m-4">
-        <textarea name="description" rows={3}
-          placeholder="Write a description"
-          onChange={handleInputChange}
-          value={video.description}
-          className="border-2 border-slate-50 p-3 w-full"
-        ></textarea>
-      </div>
-      { params.id ? (
-        <button type="submit">Update Video</button> 
-      ) : (
-        <button type="submit" className="inline-block px-5 py-2 mx-auto text-white bg-blue-600 rounded-full hover:bg-blue-700 md:mx-0">Create</button>
-      )}      
-    </form>
-  </div>
+    <div className="bg-slate-100 h-screen">
+      <form onSubmit={handleSubmit} className="container mx-auto flex flex-col">
+        <div className="m-4">
+          <input type="text" name="title"
+            placeholder="Write a title for this video." autoFocus
+            onChange={handleInputChange}
+            value={video.title}
+            className="border-2 border-slate-50 p-3 w-full"
+          />
+        </div>
+        <div className="m-4">
+          <input type="url" name="url"
+            placeholder="https://somesite.com"
+            onChange={handleInputChange}
+            value={video.url}
+            className="border-2 border-slate-50 p-3 w-full"
+          />
+        </div>
+        <div className="m-4">
+          <textarea name="description" rows={3}
+            placeholder="Write a description"
+            onChange={handleInputChange}
+            value={video.description}
+            className="border-2 border-slate-50 p-3 w-full"
+          ></textarea>
+        </div>
+        <div className="flex justify-end">
+          <button
+            onClick={() => navigate('/')}
+            className="px-5 py-2 bg-slate-200 rounded-full mx-2">Cancel</button>
+          {params.id ? (
+            <button type="submit">Update Video</button>
+          ) : (
+            <button type="submit"
+              className="inline-block px-5 py-2 mx-auto text-white bg-blue-600 rounded-full hover:bg-blue-700 md:mx-0">Create</button>
+          )}
+        </div>
+
+      </form>
+    </div>
   )
 }
 
